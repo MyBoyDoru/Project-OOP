@@ -1,0 +1,3 @@
+ERROR CODES:
+1 - value is negative when it shouldve been positive
+2 - element already exists in the vector

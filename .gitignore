@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+/Project OOP/Debug
+/.vs
+/Debug
+/Project OOP/x64/Debug/Project OOP.tlog
+/Project OOP/x64/Debug
+/x64/Debug
