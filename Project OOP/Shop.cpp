@@ -1,5 +1,11 @@
 #include "Shop.h"
 
+Shop::Shop()
+{
+	this->name = "";
+	this->sz = 0;
+}
+
 Shop::Shop(string name)
 {
 	this->name = name;
@@ -23,6 +29,14 @@ int Shop::internalSearch(Component c)
 		iter++;
 	}
 	return -1;
+}
+
+Shop Shop::operator=(const Shop other)
+{
+	this->name = other.name;
+	this->sz = other.sz;
+	this->sell = other.sell;
+	return *this;
 }
 
 void Shop::addElem(Component c, int stock, int& err_c)

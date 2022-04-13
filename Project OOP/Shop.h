@@ -12,11 +12,20 @@ class Shop
 {
 public:
 	//default constructor
+	Shop();
+	//alternate constructor
 	Shop(string name);
 	//copy constructor
 	Shop(const Shop& other);
+	//add an element and its stock to the repository
 	void addElem(Component c, int stock, int& err_c);
+	//search for a given element and return its position in the vector
+	//-1 if not found
 	int internalSearch(Component c);
+	// getters
+	string getName() const { return this->name; }
+	
+	Shop operator=(const Shop other);
 private:
 	//name of the shop
 	string name;
