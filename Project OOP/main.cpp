@@ -4,10 +4,10 @@
 
 int main()
 {
-	vector<pair<Component, int>> a;
-	a.push_back(make_pair(Component(1, "GPU", 599.99),3));
-	a.push_back(make_pair(Component(2, "CPU", 399.99),10));
-	a.push_back(make_pair(Component(3, "PSU", 99.99),7));
+	vector<pair<Item, int>> a;
+	a.push_back(make_pair(Item(1, "GPU", 599.99),3));
+	a.push_back(make_pair(CPU(2, "Core I5-7400", 399.99,"Intel",4,4.20), 10));
+	a.push_back(make_pair(Item(3, "PSU", 99.99),7));
 	CLIApp app(Controller(Shop("DenisTechs",a)));
 	app.Start();
 	return 0;

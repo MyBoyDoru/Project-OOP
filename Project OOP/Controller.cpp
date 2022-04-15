@@ -59,7 +59,8 @@ string Controller::logic()
 	switch (this->tempUserInput)
 	{
 	case 1:
-		for (int i = 0; i <= this->controlledShop.getSz(); i++)
+		buff << "";
+		for (int i = 0; i < this->controlledShop.getSz(); i++)
 		{
 			string aux = this->controlledShop.get(i, this->errCode).first.toString();
 			if (this->errCode != -1)

@@ -12,9 +12,10 @@ Shop::Shop(string name)
 	this->sz = 0;
 }
 
-Shop::Shop(string name, vector<pair<Component, int>> vec)
+Shop::Shop(string name, vector<pair<Item, int>> vec)
 {
 	this->sell = vec;
+	this->sz = this->sell.size();
 	this->name = name;
 }
 
@@ -25,7 +26,7 @@ Shop::Shop(const Shop& other)
 	this->sell = other.sell;
 }
 
-int Shop::internalSearch(Component c)
+int Shop::internalSearch(Item c)
 {
 	int iter = 0;
 	for (auto& it : this->sell)
@@ -37,13 +38,13 @@ int Shop::internalSearch(Component c)
 	return -1;
 }
 
-pair<Component, int> Shop::get(int x, int& err_c)
+pair<Item, int> Shop::get(int x, int& err_c)
 {
 	err_c = -1;
 	if (!(x >= 0 && x <= sz))
 	{
 		err_c = 4;
-		return make_pair(Component(),0);
+		return make_pair(Item(),0);
 	}
 	return this->sell[x];
 }
@@ -56,7 +57,7 @@ Shop Shop::operator=(const Shop other)
 	return *this;
 }
 
-void Shop::addElem(Component c, int stock, int& err_c)
+void Shop::addElem(Item c, int stock, int& err_c)
 {
 	err_c = 0;
 	// pre

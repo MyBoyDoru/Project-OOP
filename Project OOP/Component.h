@@ -6,23 +6,23 @@ using std::string;
 using std::istream;
 using std::cout;
 
-class Component
+class Item
 {
 public:
 	// default constructor
-	Component();
-	Component(int id, string name, float price);
+	Item();
+	Item(int id, string name, float price);
 	//getters
 	int getId() const { return this->id; }
 
-	string toString();
+	virtual string toString();
 	
 	//operators
-	friend bool operator==(const Component a, const Component b);
+	friend bool operator==(const Item a, const Item b);
 
-	friend istream& operator>>(istream& in, Component& c);
+	friend istream& operator>>(istream& in, Item& c);
 
-private:
+protected:
 	// id of the component
 	int id;
 	// name of the component
@@ -31,3 +31,20 @@ private:
 	float price;
 };
 
+class CPU : public Item
+{
+public:
+	// default constructor for the CPU class
+	CPU();
+	// alternate constructor for the CPU class
+	CPU(int ,string, float, string, int, float);
+	string toString();
+private:
+	// number of cores
+	int coreCount;
+	// default frequency
+	float frequency;
+	// self-explanatory
+	string brand;
+
+};
