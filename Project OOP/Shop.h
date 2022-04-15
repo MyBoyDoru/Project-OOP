@@ -15,6 +15,7 @@ public:
 	Shop();
 	//alternate constructor
 	Shop(string name);
+	Shop(string name, vector<pair<Component, int>> vec);
 	//copy constructor
 	Shop(const Shop& other);
 	//add an element and its stock to the repository
@@ -24,7 +25,8 @@ public:
 	int internalSearch(Component c);
 	// getters
 	string getName() const { return this->name; }
-	
+	int getSz() const { return this->sz; }
+	pair<Component,int> get(int x,int & err_c);
 	Shop operator=(const Shop other);
 private:
 	//name of the shop

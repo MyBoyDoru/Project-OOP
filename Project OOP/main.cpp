@@ -1,12 +1,14 @@
-#include <iostream>
 #include "CLIApp.h"
 #include "Controller.h"
 #include "Shop.h"
-using std::cout;
 
 int main()
 {
-	CLIApp app(Controller(Shop("DenisTechs")));
+	vector<pair<Component, int>> a;
+	a.push_back(make_pair(Component(1, "GPU", 599.99),3));
+	a.push_back(make_pair(Component(2, "CPU", 399.99),10));
+	a.push_back(make_pair(Component(3, "PSU", 99.99),7));
+	CLIApp app(Controller(Shop("DenisTechs",a)));
 	app.Start();
 	return 0;
 }

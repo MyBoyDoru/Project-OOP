@@ -24,9 +24,17 @@ void CLIApp::Start()
 		cout << "2. Add an item to the inventory\n";
 		cout << "0. Exit\n";
 		int opt;
-		cin >> opt;
-		this->controller.setUserInput(opt);
-		//cout << controller.logic();
+		if (!(cin>>opt))
+		{
+			cin.clear();
+			cin.ignore(10000, '\n');
+			this->controller.setErrCode(3);
+		}
+		else
+		{
+			this->controller.setUserInput(opt);
+			cout << controller.logic();
+		}
 		cout << controller.errorHandle()<<endl;
 	}
 }
