@@ -12,7 +12,7 @@ Shop::Shop(string name)
 	this->sz = 0;
 }
 
-Shop::Shop(string name, vector<pair<Item, int>> vec)
+Shop::Shop(string name, vector<pair<Item*, int>> vec)
 {
 	this->sell = vec;
 	this->sz = this->sell.size();
@@ -31,20 +31,20 @@ int Shop::internalSearch(Item c)
 	int iter = 0;
 	for (auto& it : this->sell)
 	{
-		if (it.first == c)
+		if (*it.first == c)
 			return iter;
 		iter++;
 	}
 	return -1;
 }
 
-pair<Item, int> Shop::get(int x, int& err_c)
+pair<Item*, int> Shop::get(int x, int& err_c)
 {
 	err_c = -1;
 	if (!(x >= 0 && x <= sz))
 	{
 		err_c = 4;
-		return make_pair(Item(),0);
+		return make_pair(new Item(),0);
 	}
 	return this->sell[x];
 }
@@ -73,6 +73,6 @@ void Shop::addElem(Item c, int stock, int& err_c)
 		err_c = 2;
 		return;
 	}
-	this->sell.push_back(make_pair(c,stock));
+	this->sell.push_back(make_pair(&c,stock));
 }
 

@@ -62,7 +62,7 @@ string Controller::logic()
 		buff << "";
 		for (int i = 0; i < this->controlledShop.getSz(); i++)
 		{
-			string aux = this->controlledShop.get(i, this->errCode).first.toString();
+			string aux = this->controlledShop.get(i, this->errCode).first->toString();
 			if (this->errCode != -1)
 				break;
 			buff << aux << "\n";
