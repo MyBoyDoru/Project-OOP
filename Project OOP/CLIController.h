@@ -5,13 +5,13 @@
 
 using std::string;
 
-class Controller
+class CLIController
 {
 public:
 	//default constructor
-	Controller();
+	CLIController();
 	//alternate constructor
-	Controller(const Shop& shop);
+	CLIController(const Shop& shop);
 	//getter
 	string getShopName() const { return this->controlledShop.getName(); }
 	// todo: error handler

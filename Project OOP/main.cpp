@@ -1,5 +1,5 @@
 #include "CLIApp.h"
-#include "Controller.h"
+#include "CLIController.h"
 #include "Shop.h"
 
 int main()
@@ -8,7 +8,7 @@ int main()
 	a.push_back(make_pair(Component(1, "GPU", 599.99),3));
 	a.push_back(make_pair(Component(2, "CPU", 399.99),10));
 	a.push_back(make_pair(Component(3, "PSU", 99.99),7));
-	CLIApp app(Controller(Shop("DenisTechs",a)));
+	CLIApp app(CLIController(Shop("DenisTechs",a)));
 	app.Start();
 	return 0;
 }

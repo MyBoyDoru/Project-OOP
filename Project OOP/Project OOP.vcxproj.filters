@@ -28,7 +28,7 @@
     <Filter Include="Frontend\CLI">
       <UniqueIdentifier>{e61c0a7c-c2ea-40e4-8704-66d8fe727c8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Backend\Controller">
+    <Filter Include="Backend\CLIController">
       <UniqueIdentifier>{bade4087-844b-4e2a-a87e-4ad8b9391287}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -45,8 +45,8 @@
     <ClCompile Include="CLIApp.cpp">
       <Filter>Frontend\CLI</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>Backend\Controller</Filter>
+    <ClCompile Include="CLIController.cpp">
+      <Filter>Backend\CLIController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,8 +59,8 @@
     <ClInclude Include="CLIApp.h">
       <Filter>Frontend\CLI</Filter>
     </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>Backend\Controller</Filter>
+    <ClInclude Include="CLIController.h">
+      <Filter>Backend\CLIController</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

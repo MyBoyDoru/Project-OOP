@@ -1,4 +1,4 @@
-#include "Controller.h"
+#include "CLIController.h"
 #include <fstream>
 #include <sstream>
 
@@ -6,21 +6,21 @@ using std::ifstream;
 using std::getline;
 using std::stringstream;
 
-Controller::Controller()
+CLIController::CLIController()
 {
 	this->controlledShop = Shop();
 	this->tempUserInput = -1;
 	this->errCode = -1;
 }
 
-Controller::Controller(const Shop& shop)
+CLIController::CLIController(const Shop& shop)
 {
 	this->controlledShop = shop;
 	this->tempUserInput = -1;
 	this->errCode = -1;
 }
 
-string Controller::errorHandle()
+string CLIController::errorHandle()
 {
 	if (this->errCode < 0)
 		return "";
@@ -42,7 +42,7 @@ string Controller::errorHandle()
 	in.close();
 }
 
-void Controller::setUserInput(int opt)
+void CLIController::setUserInput(int opt)
 {
 	if (opt < 0 || opt > 2)
 	{
@@ -53,7 +53,7 @@ void Controller::setUserInput(int opt)
 	this->tempUserInput = opt;
 }
 
-string Controller::logic()
+string CLIController::logic()
 {
 	stringstream buff;
 	switch (this->tempUserInput)

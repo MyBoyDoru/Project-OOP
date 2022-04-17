@@ -1,15 +1,15 @@
 #pragma once
-#include "Controller.h"
+#include "CLIController.h"
 class CLIApp
 {
 public:
 	// default constructor for the CLI app
 	CLIApp();
 	// alternate constructor with controller
-	CLIApp(Controller);
+	CLIApp(CLIController);
 	// starts the loop
 	void Start();
 private:
-	Controller controller;
+	CLIController controller;
 };
 
