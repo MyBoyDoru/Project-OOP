@@ -15,7 +15,7 @@ public:
 	Shop();
 	//alternate constructor
 	Shop(string name);
-	Shop(string name, vector<pair<Item, int>> vec);
+	Shop(string name, vector<pair<Item*, int>> vec);
 	//copy constructor
 	Shop(const Shop& other);
 	//add an element and its stock to the repository
@@ -29,7 +29,7 @@ public:
 	// gets the size
 	int getSz() const { return this->sz; }
 	// gets an item and its stock
-	pair<Item,int> get(int x,int & err_c);
+	pair<Item*,int> get(int x,int & err_c);
 	// = operator
 	Shop operator=(const Shop other);
 private:
@@ -38,7 +38,7 @@ private:
 	//size of the vector
 	int sz;
 	//the vector will remember both the component type and the stock status of the component
-	vector<pair<Item, int>> sell;
+	vector<pair<Item*, int>> sell;
 
 };
 

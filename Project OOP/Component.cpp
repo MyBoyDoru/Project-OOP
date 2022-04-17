@@ -39,8 +39,7 @@ istream& operator>>(istream& in, Item& c)
 string Item::toString()
 {
 	stringstream buff;
-	buff << "Item";
-	//buff << this->id << " - " << this->name << ", " << fixed << setprecision(2) << this->price << "$";
+	buff << this->id << " - " << this->name << ", " << fixed << setprecision(2) << this->price << "$";
 	return buff.str();
 }
 
@@ -64,8 +63,7 @@ CPU::CPU(int id, string name, float price, string brand, int coreCount, float fr
 string CPU::toString()
 {
 	stringstream buff;
-	buff << "CPU";
-	/*buff << this->id << " - " << this->brand << " " << this->name << ", " << this->coreCount;
+	buff << this->id << " - " << this->brand << " " << this->name << ", " << this->coreCount;
 	buff << " cores, @" << fixed << setprecision(2) << this->frequency << " gHz, " << this->price << "$";
-	*/return buff.str();
+	return buff.str();
 }
