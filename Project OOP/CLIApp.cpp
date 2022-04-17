@@ -22,7 +22,7 @@ void CLIApp::Start()
 	cout << "Welcome to " << this->controller.getShopName() << endl;
 	while (true)
 	{
-		system("cls");
+		//system("cls");
 		cout << "1. View the inventory\n";
 		cout << "2. Add an item to the inventory\n";
 		cout << "0. Exit\n";
