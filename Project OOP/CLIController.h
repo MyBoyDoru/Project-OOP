@@ -1,10 +1,11 @@
 #pragma once
 #include "Shop.h"
+#include "CLIHelper.h"
 #include <string>
-#define MAX_ERR_CODES 4
+#define MAX_ERR_CODES 6
 
 using std::string;
-
+using std::to_string;
 class CLIController
 {
 public:

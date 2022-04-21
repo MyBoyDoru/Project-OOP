@@ -33,6 +33,7 @@ string CLIController::errorHandle()
 		aux1[0] = '\0';
 		if (aux == this->errCode)
 		{
+			aux1 += " - error code: " + to_string(this->errCode);
 			this->errCode = -1;
 			return aux1;
 		}
@@ -46,7 +47,7 @@ void CLIController::setUserInput(int opt)
 {
 	if (opt < 0 || opt > 2)
 	{
-		this->errCode = 4;
+		this->errCode = 5;
 		this->tempUserInput = -1;
 		return;
 	}
@@ -55,6 +56,8 @@ void CLIController::setUserInput(int opt)
 
 string CLIController::logic()
 {
+	if (this->errCode != -1)
+		return "";
 	stringstream buff;
 	switch (this->tempUserInput)
 	{
@@ -69,7 +72,41 @@ string CLIController::logic()
 		}
 		break;
 	case 2:
+	{
+		msgSend("Component setup\n");
+		msgSend("Choose from : CPU, GPU, RAM, PSU, Case, MOBO, Storage\n");
+		string type_;
+		inputGet<string>(type_);
+		if (type_ == "CPU")
+		{
+			int id, coreCount;
+			string name, brand;
+			float price, frequency;
+			msgSend("ID: ");
+			inputGet<int>(id);
+			msgSend("Brand: ");
+			inputGet<string>(brand);
+			msgSend("Name: ");
+			inputGetLine<string>(name);
+			msgSend("Core count: ");
+			inputGet<int>(coreCount);
+			msgSend("Frequency: ");
+			inputGet<float>(frequency);
+			msgSend("Price: ");
+			inputGet<float>(price);
+			CPU c(id, name, price, brand, coreCount, frequency);
+			msgSend(c.toString());
+		}
+		else if (type_ == "GPU")
+		{
 
+		}
+		else
+		{
+			this->errCode = 6;
+		}
+		break;
+	}
 	case 0:
 		exit(0);
 		break;

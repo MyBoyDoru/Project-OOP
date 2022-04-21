@@ -48,6 +48,9 @@
     <ClCompile Include="CLIController.cpp">
       <Filter>Backend\CLIController</Filter>
     </ClCompile>
+    <ClCompile Include="CLIHelper.cpp">
+      <Filter>Frontend\CLI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="CLIController.h">
       <Filter>Backend\CLIController</Filter>
+    </ClInclude>
+    <ClInclude Include="CLIHelper.h">
+      <Filter>Frontend\CLI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

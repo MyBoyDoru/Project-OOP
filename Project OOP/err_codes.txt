@@ -2,3 +2,5 @@
 2 element already exists in the vector
 3 string has been inputted instead of a number
 4 trying to get non existent element
+5 index out of range
+6 no such component type
