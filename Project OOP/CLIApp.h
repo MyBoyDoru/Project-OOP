@@ -11,5 +11,7 @@ public:
 	void Start();
 private:
 	CLIController controller;
+	void clear();
+	void pause();
 };
 

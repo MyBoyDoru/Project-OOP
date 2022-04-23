@@ -15,11 +15,11 @@ public:
 	Shop();
 	//alternate constructor
 	Shop(string name);
-	Shop(string name, vector<pair<Item*, int>> vec);
+	Shop(string name, vector<pair<Item*, int> > vec);
 	//copy constructor
 	Shop(const Shop& other);
 	//add an element and its stock to the repository
-	void addElem(Item c, int stock, int& err_c);
+	void addElem(Item* c, int stock, int& err_c);
 	//search for a given element and return its position in the vector
 	//-1 if not found
 	int internalSearch(Item c);
@@ -38,7 +38,7 @@ private:
 	//size of the vector
 	int sz;
 	//the vector will remember both the component type and the stock status of the component
-	vector<pair<Item*, int>> sell;
+	vector<pair<Item*, int> > sell;
 
 };
 

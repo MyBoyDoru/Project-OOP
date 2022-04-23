@@ -1,4 +1,5 @@
 #include "CLIController.h"
+#include "CLIHelper.h"
 #include <fstream>
 #include <sstream>
 
@@ -69,7 +70,39 @@ string CLIController::logic()
 		}
 		break;
 	case 2:
-
+		{
+			string x;
+			CLIPrint("Enter the type of the item. You can choose from: CPU, GPU, RAM, PSU, MOBO, Storage, CASE\n");
+			CLIInput(x);
+			if(x == "CPU")
+			{
+				string name, brand;
+				int coreCount, id, stock;
+				float price, frequency;
+				CLIPrint("ID: ");
+				CLIInput(id);
+				CLIPrint("Brand: ");
+				CLIGetLine(brand);
+				CLIPrint("Name: ");
+				CLIGetLine(name);
+				CLIPrint("Core count: ");
+				CLIInput(coreCount);
+				CLIPrint("Frequency: ");
+				CLIInput(frequency);
+				CLIPrint("Price: ");
+				CLIInput(price);
+				CLIPrint("Stock: ");
+				CLIInput(stock);
+				CPU* aux = new CPU(id, name, price, brand, coreCount, frequency);
+				this->controlledShop.addElem(aux , stock, this->errCode);
+			}
+			else
+			{
+				this->errCode = 6;
+				return "";
+			}
+			break;
+		}
 	case 0:
 		exit(0);
 		break;

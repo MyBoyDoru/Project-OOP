@@ -4,7 +4,7 @@
 
 int main()
 {
-	vector<pair<Item*, int>> a;
+	vector<pair<Item*, int> > a;
 	a.push_back(make_pair(new GPU(1, "RTX 3090ti", 1099.99, "Nvidia", 1860, 24), 3));
 	a.push_back(make_pair(new CPU(2, "Core I5-7400", 399.99,"Intel",4,4.20), 10));
 	a.push_back(make_pair(new RAM(3, "Vengeance RGB PRO", 199.99, "Corsair", 3200, 32, 2), 7));
