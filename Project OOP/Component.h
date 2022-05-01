@@ -6,138 +6,230 @@ using std::string;
 using std::istream;
 using std::cout;
 
-// base class for every item in the inventory
 class Item
 {
+    /// @class Item
+    /// Base class for every Item/Component
+    ///
+    /// Almost everything (except constructors) can be overloaded.<br> This is intentional such that more functionalities
+    /// can be added during development
 public:
-	// default constructor
+	/// Default constructor
 	Item();
+    /// Alternate constructor
+    /// @param [in] id ID of the Item
+    /// @param [in] name Name of the Item
+    /// @param [in] price Price of the Item
 	Item(int id, string name, float price);
 	//getters
+    /// Gets the ID
+    /// @return Integer containing the Item's ID
 	int getId() const { return this->id; }
+    /// Overloaded function to get the type of the Item
+    /// @return The output can vary between "CPU", "GPU", etc etc. The default is "ITEM"
 	virtual string getType() const { return "ITEM"; };
+    /// Overloaded function to get the string representation of the Item
+    /// @return The output can vary between object type but its always a string
 	virtual string toString();
 	
 	//operators
+    /// Overloaded == operator
+    /// @param [in] a First Item to be compared
+    /// @param [in] b Second Item to be compared
+    /// @return True if they are equal, false otherwise
 	friend bool operator==(const Item a, const Item b);
 
 protected:
-	// id of the component
-	int id;
-	// name of the component
-	string name;
-	// price of the component
-	float price;
+	int id;         ///< ID of the component
+	string name;    ///< Name of the component
+	float price;    ///< Price of the component
 };
 
 class CPU : public Item
 {
+    /// @class CPU
+    /// Class that contains common parameters for a CPU.<br>
+    /// CPU stands for Central Processing Unit.<br>
+    /// Derived off the Item class.
 public:
-	// default constructor for the CPU class
+	/// Default constructor for the CPU class
 	CPU();
-	// alternate constructor for the CPU class
+	/// Alternate constructor for the CPU class
+	/// @param [in] brand Brand of the CPU
+	/// @param [in] coreCount Number of cpu cores
+	/// @param [in] frequency Default frequency of the CPU
 	CPU(int id,string name, float price, string brand, int coreCount, float frequency);
+    /// Gets the string form of the CPU, ready for output
+    /// @return String containing CPU information's
 	string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "CPU"
 	string getType() const { return "CPU"; };
 private:
-	// number of cores
-	int coreCount;
-	// default frequency in gHz
-	float frequency;
-	// self-explanatory
-	string brand;
-
+	int coreCount;     ///< Number of cores
+	float frequency;   ///< Default frequency in gHz
+	string brand;      ///< Self-explanatory
 };
 
 class GPU : public Item
 {
+    /// @class GPU
+    /// Class that contains common parameters for a GPU.<br>
+    /// GPU stands for Graphical Processing Unit.<br>
+    /// Derived off the Item class.<br>
 public:
-	// default constructor
+	/// Default constructor
 	GPU();
-	// alternate constructor
-	GPU(int id, string name, float price, string brand, int frequency, int DRAM);
+	/// Alternate constructor
+	/// @param [in] brand Brand of the GPU
+	/// @param [in] frequency Frequency of the GPU
+	/// @param [in] VRAM Amount of Video Ram of the GPU
+	GPU(int id, string name, float price, string brand, int frequency, int VRAM);
+    /// Gets the string form of the GPU, ready for output
+    /// @return String containing GPU information's
 	string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "GPU"
 	string getType() const { return "GPU"; };
 private:
-	// frequency of the GPU in hz, memory of the GPU in GB
-	int frequency, DRAM;
-	// self-explanatory
-	string brand;
+	int frequency;    ///< Frequency of the GPU expressed in Hz
+    int VRAM;         ///< Amount of Video Ram of the GPU, expressed in Gb
+	string brand;     ///< Self-explanatory
 };
 
 class RAM : public Item
 {
+    /// @class RAM
+    /// Class that contains the common parameters for RAM's.<br>
+    /// RAM stands for Random Access Memory.<br>
+    /// Derived off the Item class.
 public:
-	// default constructor
+	/// Default constructor
 	RAM();
-	// alternate constructor
-	RAM(int id, string name, float price, string brand, int frequency, int RAM, int modules);
+	/// Alternate constructor
+	/// @param [in] brand Brand of the DRAM
+	/// @param [in] frequency Frequency of the DRAM
+	/// @param [in] DRAM Memory of the RAM
+	/// @param [in] modules Number of "sticks" the RAM comes with
+	RAM(int id, string name, float price, string brand, int frequency, int DRAM, int modules);
+    /// Gets the string form of the RAM, ready for output
+    /// @return String containing RAM information's
 	string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "RAM"
 	string getType() const { return "RAM"; };
 private:
-	// frequency of the RAM in hz, memory of the RAM in GB
-	int frequency, RAM_, modules;
-	// self-explanatory
-	string brand;
+	int frequency;    ///< Default frequency of the RAM
+    int DRAM;         ///< Amount of memory, expressed in Gb
+    int modules;      ///< number of modules the RAM comes with
+	string brand;     ///< Self-explanatory
 };
 
 class PSU : public Item
 {
+    /// @class PSU
+    /// Class that contains common parameters for a PSU.<br>
+    /// PSU stands for Power Supply Unit.<br>
+    /// Derived off the Item class
 public:
-	// default constructor
+	/// Default constructor
 	PSU();
-	// alternate constructor
+	/// Alternate constructor
+	/// @param [in] brand Brand of the PSU
+	/// @param [in] wattage Maximum wattage allowed by the PSU
+	/// @param [in] rating String that follows a pattern. Google it
 	PSU(int id, string name, float price, string brand, int wattage, string rating);
+    /// Gets the string form of the PSU, ready for output
+    /// @return String containing PSU information's
 	string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "PSU"
 	string getType() const { return "PSU"; };
 private:
-	// max operational wattage
-	int wattage;
-	// rating of the psu, e.g. "80 bronze" or "90 gold"
-	string rating;
-	// do I have to say it every time? I wont comment from now on
-	string brand;
+	int wattage;     ///< Max operational wattage
+	string rating;   ///< Rating of the PSU. It tells the customer how efficient their PSU is.
+                     ///< This does not mean that the PSU will output less watts, it means that its less efficient.
+                     ///< Usually the rating is 80+ and one of the following - bronze, silver, gold, platinum, titanium.
+                     ///< There exists 80+ rated PSU's but I dont recommend them. Also dont ever think about buying a PSU without at least an 80+ rating
+	string brand;    ///< Self-explanatory
 };
 
 class Storage : public Item
 {
+    /// @class Storage
+    /// Class that contains common parameters for an HDD / SSD.<br>
+    /// HDD stands for Hard Disk Drive and SSD stands for Solid State Drive.<br>
+    /// Derived off the Item class.
 public:
+    /// Constructor
 	Storage();
+    /// Alternate constructor
+    /// @param [in] brand Brand of the Storage
+    /// @param [in] size Size of the Storage
+    /// @param [in] type Type of the storage
 	Storage(int id, string name, float price, string brand, int size, int type);
-	string toString();
+    /// Gets the string form of the Storage, ready for output
+    /// @return String containing Storage's information's
+    string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "Storage"
 	string getType() const { return "Storage"; };
 private:
-	string brand;
-	// size of the hdd/ssd in GB
-	int size;
-	// type of the storage, 0 for hdd, 1 for ssd
-	int type;
+	string brand; ///< Self-explanatory
+	int size;     ///< Size of the Storage, expressed in Gb
+	int type;     ///< Type of the Storage, 1 for SSD and 0 for HDD
 };
 
 class MOBO : public Item
 {
+    /// @class MOBO
+    /// Class that contains common parameters for a MotherBoard.<br>
+    /// MOBO stands for MotherBoard.<br>
+    /// Derived off the Item class.
 public:
+    /// Constructor
 	MOBO();
+    /// Alternate constructor
+    /// @param [in] brand Brand of the MOBO
+    /// @param [in] platform Technology used by the MOBO
+    /// @param [in] formFactor Size of the MOBO
 	MOBO(int id, string name, float price, string brand, string platform, string formFactor);
-	string toString();
+    /// Gets the string form of the MOBO, ready for output
+    /// @return String containing MOBO's information's
+    string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "MOBO"
 	string getType() const { return "MOBO"; };
 private:
-	string brand;
-	// if its either Intel or Amd
-	string platform;
-	// the size of the motherboard
-	string formFactor;
+	string brand;        ///< Self-explanatory
+	string platform;     ///< It can be either Intel or AMD.
+                         ///< ARM and smaller manufacturers can be found too but they are far too uncommon.
+	string formFactor;   ///< Generalized size of the MOBO. Some time ago producers manufactured motherboards as big/small
+                         ///< as they wanted or in other strange sizes. This led to the standardization of the motherboard size.<br>
+                         ///< Common motherboard standards are : ATX, mATX, ITX, eATX etc etc.<br>
+                         ///< This led to a later standardization of cases too.
 };
 
 class Case : public Item
 {
+    /// @class Case
+    /// Class that contains common parameters for a Case.<br>
+    /// Derived off the Item class
 public:
+    /// Constructor
 	Case();
+    /// Alternate constructor
+    /// @param [in] brand Brand of the Case
+    /// @param [in] formFactor Max size this Case can handle
 	Case(int id, string name, float price, string brand, string formFactor);
-	string toString();
+    /// Gets the string form of the Case, ready for output
+    /// @return String containing Case's information's
+    string toString();
+    /// Gets the type of the Item
+    /// @return Always returns "Case"
 	string getType() const { return "Case"; }
 private:
-	string brand;
-	// the size of the motherboard it can house
-	string formFactor;
+	string brand;       ///< Self-explanatory
+	string formFactor;  ///< Maximum size for the Case to handle. This can be expressed in the same way
+	                    ///< we express size for motherboards.
 };

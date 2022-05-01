@@ -64,21 +64,21 @@ GPU::GPU() : Item()
 	this->price = -1;
 	this->brand = "";
 	this->frequency = -1;
-	this->DRAM = -1;
+	this->VRAM = -1;
 }
 
-GPU::GPU(int id, string name, float price, string brand, int frequency, int DRAM) : Item(id, name, price)
+GPU::GPU(int id, string name, float price, string brand, int frequency, int VRAM) : Item(id, name, price)
 {
 	this->brand = brand;
 	this->frequency = frequency;
-	this->DRAM = DRAM;
+	this->VRAM = VRAM;
 }
 
 string GPU::toString()
 {
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", @";
-	buff << this->frequency << "hz, with " << this->DRAM << " GB of DRAM, " << fixed << setprecision(2) << this->price << "$";
+	buff << this->frequency << "hz, with " << this->VRAM << " GB of VRAM, " << fixed << setprecision(2) << this->price << "$";
 	return buff.str();
 }
 
@@ -89,15 +89,15 @@ RAM::RAM() : Item()
 	this->price = -1;
 	this->brand = "";
 	this->frequency = -1;
-	this->RAM_ = -1;
+	this->DRAM = -1;
 	this->modules = -1;
 }
 
-RAM::RAM(int id, string name, float price, string brand, int frequency, int RAM, int modules) : Item(id, name, price)
+RAM::RAM(int id, string name, float price, string brand, int frequency, int DRAM, int modules) : Item(id, name, price)
 {
 	this->brand = brand;
 	this->frequency = frequency;
-	this->RAM_ = RAM;
+	this->DRAM = DRAM;
 	this->modules = modules;
 }
 
@@ -105,7 +105,7 @@ string RAM::toString()
 {
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", @";
-	buff << this->frequency << "hz, with " << this->RAM_ << " GB of DRAM, with a "<< this->RAM_/this->modules <<"*" << this->modules << " configuration, " << fixed << setprecision(2) << this->price << "$";
+	buff << this->frequency << "hz, with " << this->DRAM << " GB of VRAM, with a " << this->DRAM / this->modules << "*" << this->modules << " configuration, " << fixed << setprecision(2) << this->price << "$";
 	return buff.str();
 }
 

@@ -38,9 +38,9 @@ string CLIController::errorHandle()
 			return aux1;
 		}
 	}
+    this->errCode = -1;
+    in.close();
 	return "Unhandled error - please contact the developer of this app";
-	this->errCode = -1;
-	in.close();
 }
 
 void CLIController::setUserInput(int opt)

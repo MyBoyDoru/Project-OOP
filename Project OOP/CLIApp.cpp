@@ -9,13 +9,12 @@ using std::cout;
 using std::endl;
 using std::system;
 
-CLIApp::CLIApp()
+CLIApp::CLIApp() : handler("temp.txt")
 {
 	this->controller = CLIController();
 }
 
-CLIApp::CLIApp(CLIController c)
-{
+CLIApp::CLIApp(CLIController c, string handler) : handler(handler) {
 	this->controller = c;
 }
 
@@ -40,7 +39,11 @@ void CLIApp::pause()
 
 void CLIApp::Start()
 {
+    /// pre - checks if the user input is valid
+    /// performs the needed operations
+    /// post - checks if there are errors and if needed prints out the error
 	cout << "Welcome to " << this->controller.getShopName() << endl;
+    this->handler.save(this->controller.getShop());
 	while (true)
 	{
 		cout << "1. View the inventory\n";
@@ -54,10 +57,10 @@ void CLIApp::Start()
 			this->controller.setErrCode(3);
 		}
 		else
-		{
-			this->controller.setUserInput(opt);
-			cout << controller.logic();
-		}
+        {
+            this->controller.setUserInput(opt);
+            cout << controller.logic();
+        }
 		cout << controller.errorHandle()<<endl;
 		this->pause();
 		this->clear();

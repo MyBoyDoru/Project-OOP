@@ -16,4 +16,4 @@ add_executable(
     Shop.cpp
     CLIController.cpp
     CLIApp.cpp
-)
+        FileHandler.cpp FileHandler.h)

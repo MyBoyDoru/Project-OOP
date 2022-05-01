@@ -1,17 +1,21 @@
 #pragma once
 #include "CLIController.h"
+#include "FileHandler.h"
+
 class CLIApp
 {
 public:
-	// default constructor for the CLI app
+	/// Default constructor for the CLI app
 	CLIApp();
-	// alternate constructor with controller
-	CLIApp(CLIController);
-	// starts the loop
-	void Start();
+    /// Alternate constructor with controller
+    /// @param [in] CLIController Controller associated to the CLIApp class
+    CLIApp(CLIController c, string handler);
+	/// Starts the loop
+    void Start();
 private:
-	CLIController controller;
-	void clear();
-	void pause();
+	CLIController controller; ///< The associated controller for this app
+    FileHandler handler; ///< The associated file handler for this app
+	void clear(); ///< Cross platform clear function
+	void pause(); ///< Cross platform pause function
 };
 
