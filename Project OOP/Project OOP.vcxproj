@@ -142,14 +142,15 @@
     <ClCompile Include="CLIApp.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CLIController.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLIApp.h" />
-    <ClInclude Include="CLIHelper.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CLIController.h" />
+    <ClInclude Include="FileHandler.h" />
     <ClInclude Include="Shop.h" />
   </ItemGroup>
   <ItemGroup>

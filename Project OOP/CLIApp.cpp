@@ -37,6 +37,17 @@ void CLIApp::pause()
 	#endif
 }
 
+void CLIApp::setup()
+{
+	this->pause();
+	cout << "Component setup";
+}
+
+void CLIApp::viewAll()
+{
+	cout << this->controller.getAllStr();
+}
+
 void CLIApp::Start()
 {
     /// pre - checks if the user input is valid
@@ -58,8 +69,21 @@ void CLIApp::Start()
 		}
 		else
         {
-            this->controller.setUserInput(opt);
-            cout << controller.logic();
+			switch (opt)
+			{
+			case 1:
+				this->viewAll();
+				break;
+			case 2:
+				this->setup();
+			case 0:
+				cout << "See ya\n";
+				exit(0);
+				break;
+			default:
+				cout << "Wrong option!\n";
+				break;
+			}
         }
 		cout << controller.errorHandle()<<endl;
 		this->pause();

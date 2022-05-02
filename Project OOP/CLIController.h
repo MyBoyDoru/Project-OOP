@@ -1,6 +1,5 @@
 #pragma once
 #include "Shop.h"
-#include "CLIHelper.h"
 #include <string>
 #define MAX_ERR_CODES 6
 
@@ -26,15 +25,16 @@ public:
     /// Sets the user input
     /// @param [in] opt User input, int that has to be between [0,2] (for now, more options will come later
 	void setUserInput(int opt);
-	// todo: do logic stuff
-    /// Main logical method
-    /// @return String containing output
-	string logic();
 	// todo: try and find the best way to spit out output
 	/// Sets the error code
 	/// @param [in] err_c Error code to be set
 	void setErrCode(int err_c) { this->errCode = err_c > 0 ? err_c : 0; }
     Shop getShop(){return this->controlledShop;}
+	/// <summary>
+	/// Transforms the Items into a string form
+	/// </summary>
+	/// <returns>String with informations about the Items</returns>
+	string getAllStr();
 private:
     /// Controlled shop
 	Shop controlledShop;

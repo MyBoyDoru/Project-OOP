@@ -1,6 +1,5 @@
 #pragma once
 #include "CLIController.h"
-#include "CLIHelper.h"
 #include "FileHandler.h"
 
 class CLIApp
@@ -14,9 +13,15 @@ public:
 	/// Starts the loop
     void Start();
 private:
+
 	CLIController controller; ///< The associated controller for this app
     FileHandler handler; ///< The associated file handler for this app
 	void clear(); ///< Cross platform clear function
 	void pause(); ///< Cross platform pause function
+	/// <summary>
+	/// Sets up an Item to be added to the inventory
+	/// </summary>
+	void setup();
+	void viewAll();
 };
 
