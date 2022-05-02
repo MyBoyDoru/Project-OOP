@@ -12,7 +12,7 @@ int main()
 	a.push_back(make_pair(new Storage(5, "EVO950",150,"Samsung",1000,1), 20));
 	a.push_back(make_pair(new MOBO(6, "Z170 PRO GAMING", 180, "Asus", "Intel", "ATX"), 3));
 	a.push_back(make_pair(new Case(7, "H700i", 149.99, "NZXT", "ATX"), 5));
-	CLIApp app(CLIController(Shop("DenisTechs",a)));
+	CLIApp app = CLIApp(CLIController(Shop("DenisTechs",a)), "testing.txt");
 	app.Start();
 	return 0;
 }

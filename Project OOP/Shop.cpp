@@ -57,7 +57,7 @@ Shop Shop::operator=(const Shop other)
 	return *this;
 }
 
-void Shop::addElem(Item c, int stock, int& err_c)
+void Shop::addElem(Item* c, int stock, int& err_c)
 {
 	err_c = 0;
 	// pre
@@ -68,11 +68,11 @@ void Shop::addElem(Item c, int stock, int& err_c)
 		return;
 	}
 	// search and check if c exists
-	if (this->internalSearch(c) != -1)
+	if (this->internalSearch(*c) != -1)
 	{
 		err_c = 2;
 		return;
 	}
-	this->sell.push_back(make_pair(&c,stock));
+	this->sell.push_back(make_pair(c,stock));
 }
 

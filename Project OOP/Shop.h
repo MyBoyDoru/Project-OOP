@@ -11,34 +11,47 @@ using std::make_pair;
 class Shop
 {
 public:
-	//default constructor
+	/// Default constructor
 	Shop();
-	//alternate constructor
+	/// Alternate constructor
+	/// @param [in] name String containing the name of the shop
 	Shop(string name);
-	Shop(string name, vector<pair<Item*, int>> vec);
-	//copy constructor
+    /// Alternate constructor
+    /// @param [in] name String containing the name of the shop
+    /// @param [in] vec Vector of pairs. Each pair contains a pointer to an Item (can be derived) and its stock (int). This is made for testing and initializing purposes only and will be removed
+	Shop(string name, vector<pair<Item*, int> > vec);
+	/// Copy constructor
+	/// @param [in] other Shop to be copied from
 	Shop(const Shop& other);
-	//add an element and its stock to the repository
-	void addElem(Item c, int stock, int& err_c);
-	//search for a given element and return its position in the vector
-	//-1 if not found
+	/// Adds an element and its stock to the repository
+	/// @param [in] c Pointer to the Item to be added
+	/// @param [in] stock Stock of the Item to be added
+	/// @param [out] err_c Error code. If anything happens, like the stock is negative (even if that's not really possible by design) the error code will change and the program will handle it accordingly
+	void addElem(Item* c, int stock, int& err_c);
+	/// Search for a given element and return its position in the vector
+	/// @param [in] c Item to be searched for
+	/// @return the index of the item if found, -1 otherwise
 	int internalSearch(Item c);
 	// getters
-	// gets the name
+	/// Gets the name
+	/// @return String containing the shop's name
 	string getName() const { return this->name; }
-	// gets the size
+	/// Gets the size
+	/// @return Integer containing the current size of the shop
 	int getSz() const { return this->sz; }
-	// gets an item and its stock
+	/// Gets a pair containing an item and its stock from an index
+	/// @param [in] x Index of the pair
+	/// @param [out] err_c Error code if needed
+	/// @return Pair of pointer of Item and int
 	pair<Item*,int> get(int x,int & err_c);
-	// = operator
+	/// = operator
+	/// @param [in] other Shop to copy from
+	/// @return This shop
 	Shop operator=(const Shop other);
 private:
-	//name of the shop
-	string name;
-	//size of the vector
-	int sz;
-	//the vector will remember both the component type and the stock status of the component
-	vector<pair<Item*, int>> sell;
+	string name; ///< Name of the shop
+	int sz; ///< Size of the vector
+	vector<pair<Item*, int> > sell; ///< The vector will remember both the component type and the stock status of the component
 
 };
 

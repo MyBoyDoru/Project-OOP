@@ -36,3 +36,42 @@
 /Project OOP/x64/Debug/Project OOP.tlog
 /Project OOP/x64/Debug
 /x64/Debug
+.DS_Store
+/Project_OOP/build
+/Project_OOP/.vs
+Project OOP/build/cmake_install.cmake
+Project OOP/build/CMakeCache.txt
+Project OOP/build/Makefile
+Project OOP/build/Project_OOP
+Project OOP/build/.cmake/api/v1/query/client-vscode/query.json
+Project OOP/build/.cmake/api/v1/reply/cache-v2-17173a36578f9f904352.json
+Project OOP/build/.cmake/api/v1/reply/codemodel-v2-91dd338c370ef873147a.json
+Project OOP/build/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
+Project OOP/build/.cmake/api/v1/reply/index-2022-04-23T08-43-20-0611.json
+Project OOP/build/.cmake/api/v1/reply/target-Project_OOP-Debug-92039618f290802b9325.json
+Project OOP/build/.cmake/api/v1/reply/toolchains-v1-4e4f33a750fd2909f06d.json
+Project OOP/build/CMakeFiles/cmake.check_cache
+Project OOP/build/CMakeFiles/CMakeDirectoryInformation.cmake
+Project OOP/build/CMakeFiles/CMakeOutput.log
+Project OOP/build/CMakeFiles/Makefile.cmake
+Project OOP/build/CMakeFiles/Makefile2
+Project OOP/build/CMakeFiles/progress.marks
+Project OOP/build/CMakeFiles/TargetDirectories.txt
+Project OOP/build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
+Project OOP/build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
+Project OOP/build/CMakeFiles/3.23.1/CMakeDetermineCompilerABI_C.bin
+Project OOP/build/CMakeFiles/3.23.1/CMakeDetermineCompilerABI_CXX.bin
+Project OOP/build/CMakeFiles/3.23.1/CMakeSystem.cmake
+Project OOP/build/CMakeFiles/3.23.1/CompilerIdC/CMakeCCompilerId.c
+Project OOP/build/CMakeFiles/3.23.1/CompilerIdCXX/CMakeCXXCompilerId.cpp
+Project OOP/build/CMakeFiles/Project_OOP.dir/build.make
+Project OOP/build/CMakeFiles/Project_OOP.dir/cmake_clean.cmake
+Project OOP/build/CMakeFiles/Project_OOP.dir/compiler_depend.internal
+Project OOP/build/CMakeFiles/Project_OOP.dir/compiler_depend.make
+Project OOP/build/CMakeFiles/Project_OOP.dir/compiler_depend.ts
+Project OOP/build/CMakeFiles/Project_OOP.dir/depend.make
+Project OOP/build/CMakeFiles/Project_OOP.dir/DependInfo.cmake
+Project OOP/build/CMakeFiles/Project_OOP.dir/flags.make
+Project OOP/build/CMakeFiles/Project_OOP.dir/link.txt
+Project OOP/build/CMakeFiles/Project_OOP.dir/progress.make
+Project OOP/.vscode/launch.json

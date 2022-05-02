@@ -1,4 +1,5 @@
 #include "CLIController.h"
+#include "CLIHelper.h"
 #include <fstream>
 #include <sstream>
 
@@ -38,9 +39,9 @@ string CLIController::errorHandle()
 			return aux1;
 		}
 	}
+    this->errCode = -1;
+    in.close();
 	return "Unhandled error - please contact the developer of this app";
-	this->errCode = -1;
-	in.close();
 }
 
 void CLIController::setUserInput(int opt)
@@ -72,41 +73,39 @@ string CLIController::logic()
 		}
 		break;
 	case 2:
-	{
-		msgSend("Component setup\n");
-		msgSend("Choose from : CPU, GPU, RAM, PSU, Case, MOBO, Storage\n");
-		string type_;
-		inputGet<string>(type_);
-		if (type_ == "CPU")
 		{
-			int id, coreCount;
-			string name, brand;
-			float price, frequency;
-			msgSend("ID: ");
-			inputGet<int>(id);
-			msgSend("Brand: ");
-			inputGet<string>(brand);
-			msgSend("Name: ");
-			inputGetLine<string>(name);
-			msgSend("Core count: ");
-			inputGet<int>(coreCount);
-			msgSend("Frequency: ");
-			inputGet<float>(frequency);
-			msgSend("Price: ");
-			inputGet<float>(price);
-			CPU c(id, name, price, brand, coreCount, frequency);
-			msgSend(c.toString());
+			string x;
+			CLIPrint("Enter the type of the item. You can choose from: CPU, GPU, RAM, PSU, MOBO, Storage, CASE\n");
+			CLIInput(x);
+			if(x == "CPU")
+			{
+				string name, brand;
+				int coreCount, id, stock;
+				float price, frequency;
+				CLIPrint("ID: ");
+				CLIInput(id);
+				CLIPrint("Brand: ");
+				CLIGetLine(brand);
+				CLIPrint("Name: ");
+				CLIGetLine(name);
+				CLIPrint("Core count: ");
+				CLIInput(coreCount);
+				CLIPrint("Frequency: ");
+				CLIInput(frequency);
+				CLIPrint("Price: ");
+				CLIInput(price);
+				CLIPrint("Stock: ");
+				CLIInput(stock);
+				CPU* aux = new CPU(id, name, price, brand, coreCount, frequency);
+				this->controlledShop.addElem(aux , stock, this->errCode);
+			}
+			else
+			{
+				this->errCode = 6;
+				return "";
+			}
+			break;
 		}
-		else if (type_ == "GPU")
-		{
-
-		}
-		else
-		{
-			this->errCode = 6;
-		}
-		break;
-	}
 	case 0:
 		exit(0);
 		break;
