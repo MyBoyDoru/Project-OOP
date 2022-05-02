@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using std::string;
+
 /// Helper function to print out some output
 /// @param [in] x String containing the output to be printed
 void CLIPrint(string x)

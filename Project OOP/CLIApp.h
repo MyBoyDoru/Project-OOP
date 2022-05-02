@@ -1,5 +1,6 @@
 #pragma once
 #include "CLIController.h"
+#include "CLIHelper.h"
 #include "FileHandler.h"
 
 class CLIApp

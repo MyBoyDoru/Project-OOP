@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CLIApp.cpp" />
-    <ClCompile Include="CLIHelper.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CLIController.cpp" />
     <ClCompile Include="main.cpp" />
