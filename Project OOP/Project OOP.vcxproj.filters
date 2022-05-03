@@ -34,6 +34,9 @@
     <Filter Include="Backend\File Handler">
       <UniqueIdentifier>{c9fa9010-e9ec-46bc-a28c-9b95baec6774}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Backend\Action">
+      <UniqueIdentifier>{d26346db-9b65-4a9e-b3fe-b048664a5543}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +57,9 @@
     <ClCompile Include="FileHandler.cpp">
       <Filter>Backend\File Handler</Filter>
     </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Backend\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -70,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="FileHandler.h">
       <Filter>Backend\File Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Backend\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -41,6 +41,8 @@ void CLIApp::setup()
 {
 	this->pause();
 	cout << "Component setup";
+	cout << "Type of component";
+	
 }
 
 void CLIApp::viewAll()
