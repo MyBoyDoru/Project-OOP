@@ -12,10 +12,10 @@ FileHandler::FileHandler(string path)
 void FileHandler::save(Shop x)
 {
     ofstream out(this->filePath.c_str());
-    int aux_sz = x.getSz(), err_c = -1;
+    int aux_sz = x.getSz();
     for(int i = 0; i < aux_sz; i++)
     {
-        out<< x.get(i,err_c).first->getType()<< " " << x.get(i,err_c).first->toString() << " " << x.get(i,err_c).second<<"\n";
+        out<< x.get(i).first->getType()<< " " << x.get(i).first->toString() << " " << x.get(i).second<<"\n";
     }
     out.close();
 }

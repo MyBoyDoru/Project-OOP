@@ -27,7 +27,7 @@ public:
 	/// @param [in] c Pointer to the Item to be added
 	/// @param [in] stock Stock of the Item to be added
 	/// @param [out] err_c Error code. If anything happens, like the stock is negative (even if that's not really possible by design) the error code will change and the program will handle it accordingly
-	void addElem(Item* c, int stock, int& err_c);
+	void addElem(Item* c, int stock);
 	/// Search for a given element and return its position in the vector
 	/// @param [in] c Item to be searched for
 	/// @return the index of the item if found, -1 otherwise
@@ -43,7 +43,7 @@ public:
 	/// @param [in] x Index of the pair
 	/// @param [out] err_c Error code if needed
 	/// @return Pair of pointer of Item and int
-	pair<Item*,int> get(int x,int & err_c);
+	pair<Item*,int> get(int x);
 	/// = operator
 	/// @param [in] other Shop to copy from
 	/// @return This shop
