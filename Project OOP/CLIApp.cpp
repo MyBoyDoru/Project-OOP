@@ -3,7 +3,7 @@
 #ifdef _WIN_32
 #include <Windows.h>
 #endif
-
+ /// commit here
 using std::cin;
 using std::cout;
 using std::endl;
@@ -18,7 +18,7 @@ CLIApp::CLIApp(CLIController c, string handler) : handler(handler) {
 	this->controller = c;
 }
 
-void CLIApp::clear()
+void CLIApp::clear() 
 {
 	#ifdef _WIN32
 		system("cls");
