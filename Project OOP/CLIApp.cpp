@@ -63,31 +63,36 @@ void CLIApp::Start()
 		cout << "2. Add an item to the inventory\n";
 		cout << "0. Exit\n";
 		int opt;
-		if (!(cin>>opt))
-		{
-			cin.clear();
-			cin.ignore(10000, '\n');
-			this->controller.setErrCode(3);
-		}
-		else
-        {
-			switch (opt)
+		try {
+			if (!(cin >> opt))
 			{
-			case 1:
-				this->viewAll();
-				break;
-			case 2:
-				this->setup();
-			case 0:
-				cout << "See ya\n";
-				exit(0);
-				break;
-			default:
-				cout << "Wrong option!\n";
-				break;
+				cin.clear();
+				cin.ignore(10000, '\n');
+				throw(3);
 			}
-        }
-		cout << controller.errorHandle()<<endl;
+			else
+			{
+				switch (opt)
+				{
+				case 1:
+					this->viewAll();
+					break;
+				case 2:
+					this->setup();
+				case 0:
+					cout << "See ya\n";
+					exit(0);
+					break;
+				default:
+					cout << "Wrong option!\n";
+					break;
+				}
+			}
+		}
+		catch (int err_code)
+		{
+			cout << controller.errorHandle(err_code) << endl;
+		}
 		this->pause();
 		this->clear();
 	}

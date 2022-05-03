@@ -38,13 +38,11 @@ int Shop::internalSearch(Item c)
 	return -1;
 }
 
-pair<Item*, int> Shop::get(int x, int& err_c)
+pair<Item*, int> Shop::get(int x)
 {
-	err_c = -1;
 	if (!(x >= 0 && x <= sz))
 	{
-		err_c = 4;
-		return make_pair(new Item(),0);
+		throw(4);
 	}
 	return this->sell[x];
 }
@@ -57,21 +55,18 @@ Shop Shop::operator=(const Shop other)
 	return *this;
 }
 
-void Shop::addElem(Item* c, int stock, int& err_c)
+void Shop::addElem(Item* c, int stock)
 {
-	err_c = 0;
 	// pre
 	// check stock for positive
 	if (stock < 0)
 	{
-		err_c = 1;
-		return;
+		throw(1);
 	}
 	// search and check if c exists
 	if (this->internalSearch(*c) != -1)
 	{
-		err_c = 2;
-		return;
+		throw(2);
 	}
 	this->sell.push_back(make_pair(c,stock));
 }

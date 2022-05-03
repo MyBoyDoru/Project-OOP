@@ -20,15 +20,11 @@ public:
 	// todo: error handler
     /// Handles errors and if needed prints out the errors
     /// @return A string containing a short description of the error and its code if needed, nothing otherwise
-	string errorHandle();
+	string errorHandle(int errCode);
 	// todo: get user input
     /// Sets the user input
     /// @param [in] opt User input, int that has to be between [0,2] (for now, more options will come later
 	void setUserInput(int opt);
-	// todo: try and find the best way to spit out output
-	/// Sets the error code
-	/// @param [in] err_c Error code to be set
-	void setErrCode(int err_c) { this->errCode = err_c > 0 ? err_c : 0; }
     Shop getShop(){return this->controlledShop;}
 	/// <summary>
 	/// Transforms the Items into a string form
@@ -38,6 +34,6 @@ public:
 private:
     /// Controlled shop
 	Shop controlledShop;
-	int tempUserInput, errCode;
+	int tempUserInput;
 };
 
