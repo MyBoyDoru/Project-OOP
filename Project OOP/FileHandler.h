@@ -20,7 +20,15 @@ public:
     /// Constructor
     /// @param [in] path Path to the handled file
     FileHandler(string path);
+    /// <summary>
+    /// Dumps everything onto the file as a CSV format
+    /// </summary>
+    /// <param name="x">Shop to be dumped</param>
     void save(Shop x);
+    /// <summary>
+    /// Loads everything from a CSV file
+    /// </summary>
+    /// <param name="x">Shop that receives the information</param>
     void load(Shop& x);
 
 private:

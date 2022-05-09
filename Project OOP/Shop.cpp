@@ -38,7 +38,7 @@ int Shop::internalSearch(Item c)
 	return -1;
 }
 
-pair<Item*, int> Shop::operator[](int x)
+pair<Item*, int>& Shop::operator[](int x)
 {
 	if (!(x >= 0 && x <= sz))
 	{
@@ -53,6 +53,16 @@ Shop Shop::operator=(const Shop other)
 	this->sz = other.sz;
 	this->sell = other.sell;
 	return *this;
+}
+
+Item* Shop::getElemById(int id)
+{
+	for (auto& it : this->sell)
+	{
+		if (it.first->getId() == id)
+			return it.first;
+	}
+	return nullptr;
 }
 
 void Shop::addElem(Item* c, int stock)
@@ -72,3 +82,16 @@ void Shop::addElem(Item* c, int stock)
 	this->sz++;
 }
 
+void Shop::remElem(int id)
+{
+	std::vector<pair<Item*, int>>::iterator it;
+	for (it = this->sell.begin(); it != this->sell.end(); it++)
+	{
+		if (it->first->getId() == id)
+		{
+			this->sell.erase(it);
+			break;
+		}
+	}
+	this->sz--;
+}

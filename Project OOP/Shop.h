@@ -43,11 +43,27 @@ public:
 	/// @param [in] x Index of the pair
 	/// @param [out] err_c Error code if needed
 	/// @return Pair of pointer of Item and int
-	pair<Item*,int> operator[](int x);
+	pair<Item*,int>& operator[](int x);
 	/// = operator
 	/// @param [in] other Shop to copy from
 	/// @return This shop
 	Shop operator=(const Shop other);
+	/// <summary>
+	/// Gets the entire list
+	/// </summary>
+	/// <returns>List with Items* and stocks</returns>
+	vector<pair<Item*, int>> getList() const { return this->sell; }
+	/// <summary>
+	/// Gets an element with the given ID
+	/// </summary>
+	/// <param name="id">ID to be searched</param>
+	/// <returns>Item* if found</returns>
+	Item* getElemById(int id);\
+	/// <summary>
+	/// Removes an element with the ID
+	/// </summary>
+	/// <param name="id">ID to be removed</param>
+	void remElem(int id);
 private:
 	string name; ///< Name of the shop
 	int sz; ///< Size of the vector

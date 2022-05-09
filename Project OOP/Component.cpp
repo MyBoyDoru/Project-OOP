@@ -126,7 +126,7 @@ string RAM::toString()
 {
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", @";
-	buff << this->frequency << "hz, with " << this->DRAM << " GB of VRAM, with a " << this->DRAM / this->modules << "*" << this->modules << " configuration, " << fixed << setprecision(2) << this->price << "$";
+	buff << this->frequency << "hz, with " << this->DRAM << " GB of DRAM, with a " << this->DRAM / this->modules << "*" << this->modules << " configuration, " << fixed << setprecision(2) << this->price << "$";
 	return buff.str();
 }
 

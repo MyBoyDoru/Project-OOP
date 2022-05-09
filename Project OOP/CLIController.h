@@ -1,11 +1,13 @@
 #pragma once
 #include "Shop.h"
 #include "FileHandler.h"
+#include "FilterBase.h"
 #include <string>
 #define MAX_ERR_CODES 7
 
 using std::string;
 using std::to_string;
+
 class CLIController
 {
 public:
@@ -28,8 +30,56 @@ public:
 	/// </summary>
 	/// <returns>String with informations about the Items</returns>
 	string getAllStr();
+	/// <summary>
+	/// Inits the vector and file manager
+	/// </summary>
 	void init();
+	/// <summary>
+	/// Loads everything onto a file
+	/// </summary>
 	void cleanUp();
+	/// <summary>
+	/// Adds an element and its stock to the inventory
+	/// </summary>
+	/// <param name="x">Element to be added</param>
+	/// <param name="s">Stock of the element</param>
+	void addElem(Item* x, int s);
+	/// <summary>
+	/// Removes an element by its ID
+	/// </summary>
+	/// <param name="id">ID of the element to be removed</param>
+	void removeElem(int id);
+	/// <summary>
+	/// Filters by type
+	/// </summary>
+	/// <param name="type">Type to be filtered</param>
+	/// <returns>String with the filtered elements</returns>
+	string filterType(string type);
+	/// <summary>
+	/// Filters by price
+	/// </summary>
+	/// <param name="price">Price to be filtered</param>
+	/// <returns>String with the filtered elements</returns>
+	string filterPrice(float price);
+	/// <summary>
+	/// Filters by price and type
+	/// </summary>
+	/// <param name="type">Type to be filtered</param>
+	/// <param name="price">Price to be filtered</param>
+	/// <returns>String with the filtered elements</returns>
+	string filterBoth(string type, float price);
+	/// <summary>
+	/// Gets the Item* with the given ID
+	/// </summary>
+	/// <param name="id">Id to be found</param>
+	/// <returns>Item*</returns>
+	Item* get(int id);
+	/// <summary>
+	/// Modifies the Item with the given ID
+	/// </summary>
+	/// <param name="x">Modified Item</param>
+	/// <param name="id">ID of the old item</param>
+	void modify(pair<Item*, int> x, int id);
 private:
     /// Controlled shop
 	Shop controlledShop;

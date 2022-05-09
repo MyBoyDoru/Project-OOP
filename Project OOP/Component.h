@@ -32,6 +32,7 @@ public:
     /// @return The output can vary between object type but its always a string
 	virtual string toString();
     virtual string toCSV();
+    float getPrice() { return this->price; }
 	//operators
     /// Overloaded == operator
     /// @param [in] a First Item to be compared

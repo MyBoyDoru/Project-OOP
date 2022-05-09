@@ -144,6 +144,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CLIController.cpp" />
     <ClCompile Include="FileHandler.cpp" />
+    <ClCompile Include="FilterBase.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="CLIController.h" />
     <ClInclude Include="FileHandler.h" />
+    <ClInclude Include="FilterBase.h" />
     <ClInclude Include="Shop.h" />
   </ItemGroup>
   <ItemGroup>
