@@ -43,7 +43,7 @@ public:
 	/// @param [in] x Index of the pair
 	/// @param [out] err_c Error code if needed
 	/// @return Pair of pointer of Item and int
-	pair<Item*,int> get(int x);
+	pair<Item*,int> operator[](int x);
 	/// = operator
 	/// @param [in] other Shop to copy from
 	/// @return This shop

@@ -38,7 +38,7 @@ int Shop::internalSearch(Item c)
 	return -1;
 }
 
-pair<Item*, int> Shop::get(int x)
+pair<Item*, int> Shop::operator[](int x)
 {
 	if (!(x >= 0 && x <= sz))
 	{
@@ -69,5 +69,6 @@ void Shop::addElem(Item* c, int stock)
 		throw(2);
 	}
 	this->sell.push_back(make_pair(c,stock));
+	this->sz++;
 }
 

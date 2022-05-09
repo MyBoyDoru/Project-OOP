@@ -16,6 +16,7 @@ class FileHandler {
     /// @class FileHandler
     /// Handles files, saves and loads.
 public:
+    FileHandler();
     /// Constructor
     /// @param [in] path Path to the handled file
     FileHandler(string path);

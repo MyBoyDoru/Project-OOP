@@ -1,6 +1,5 @@
 #pragma once
 #include "CLIController.h"
-#include "FileHandler.h"
 
 class CLIApp
 {
@@ -9,13 +8,14 @@ public:
 	CLIApp();
     /// Alternate constructor with controller
     /// @param [in] CLIController Controller associated to the CLIApp class
-    CLIApp(CLIController c, string handler);
+    CLIApp(CLIController c);
 	/// Starts the loop
     void Start();
+	void addElement(Item* x, int stock);
 private:
 
 	CLIController controller; ///< The associated controller for this app
-    FileHandler handler; ///< The associated file handler for this app
+    
 	void clear(); ///< Cross platform clear function
 	void pause(); ///< Cross platform pause function
 	/// <summary>

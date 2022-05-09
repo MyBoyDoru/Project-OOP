@@ -6,16 +6,14 @@ using std::ifstream;
 using std::getline;
 using std::stringstream;
 
-CLIController::CLIController()
+CLIController::CLIController() : fileHandler("temp.csv")
 {
 	this->controlledShop = Shop();
-	this->tempUserInput = -1;
 }
 
-CLIController::CLIController(const Shop& shop)
+CLIController::CLIController(const Shop& shop, string handler) : fileHandler(handler)
 {
 	this->controlledShop = shop;
-	this->tempUserInput = -1;
 }
 
 string CLIController::errorHandle(int errCode)
@@ -40,25 +38,25 @@ string CLIController::errorHandle(int errCode)
 	return "Unhandled error - please contact the developer of this app";
 }
 
-void CLIController::setUserInput(int opt)
-{
-	if (opt < 0 || opt > 2)
-	{
-		this->tempUserInput = -1;
-		throw(5);
-	}
-	this->tempUserInput = opt;
-}
-
-
 string CLIController::getAllStr()
 {
 	stringstream buff;
 	buff << "";
 	for (int i = 0; i < this->controlledShop.getSz(); i++)
 	{
-		string aux = this->controlledShop.get(i).first->toString();
-		buff << aux << " - " << this->controlledShop.get(i).second << " left in stock\n";
+		string aux = this->controlledShop[i].first->toString();
+		buff << aux << " - " << this->controlledShop[i].second << " left in stock\n";
 	}
 	return buff.str();
+}
+
+void CLIController::init()
+{
+	this->fileHandler.load(this->controlledShop);
+	return;
+}
+
+void CLIController::cleanUp()
+{
+	this->fileHandler.save(this->controlledShop);
 }

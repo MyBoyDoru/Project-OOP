@@ -4,3 +4,4 @@
 4 trying to get non existent element
 5 index out of range
 6 no such component type
+7 invalid item type while reading file

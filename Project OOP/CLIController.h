@@ -1,7 +1,8 @@
 #pragma once
 #include "Shop.h"
+#include "FileHandler.h"
 #include <string>
-#define MAX_ERR_CODES 6
+#define MAX_ERR_CODES 7
 
 using std::string;
 using std::to_string;
@@ -12,7 +13,7 @@ public:
 	CLIController();
 	/// alternate constructor
 	/// @param [in] shop Custom controlled shop
-	CLIController(const Shop& shop);
+	CLIController(const Shop& shop, string handler);
 	//getters
     /// Gets the name of the shop
     /// @return A string containing the name of the shop
@@ -21,19 +22,18 @@ public:
     /// Handles errors and if needed prints out the errors
     /// @return A string containing a short description of the error and its code if needed, nothing otherwise
 	string errorHandle(int errCode);
-	// todo: get user input
-    /// Sets the user input
-    /// @param [in] opt User input, int that has to be between [0,2] (for now, more options will come later
-	void setUserInput(int opt);
     Shop getShop(){return this->controlledShop;}
 	/// <summary>
 	/// Transforms the Items into a string form
 	/// </summary>
 	/// <returns>String with informations about the Items</returns>
 	string getAllStr();
+	void init();
+	void cleanUp();
 private:
     /// Controlled shop
 	Shop controlledShop;
-	int tempUserInput;
+	FileHandler fileHandler; ///< The associated file handler for this app
+	
 };
 

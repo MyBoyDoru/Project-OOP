@@ -32,6 +32,13 @@ string Item::toString()
 	return buff.str();
 }
 
+string Item::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price;
+	return buff.str();
+}
+
 CPU::CPU() : Item()
 {
 	this->name = "";
@@ -57,6 +64,13 @@ string CPU::toString()
 	return buff.str();
 }
 
+string CPU::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->coreCount << "," << this->frequency;
+	return buff.str();
+}
+
 GPU::GPU() : Item()
 {
 	this->name = "";
@@ -79,6 +93,13 @@ string GPU::toString()
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", @";
 	buff << this->frequency << "hz, with " << this->VRAM << " GB of VRAM, " << fixed << setprecision(2) << this->price << "$";
+	return buff.str();
+}
+
+string GPU::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->frequency << "," << this->VRAM;
 	return buff.str();
 }
 
@@ -109,6 +130,13 @@ string RAM::toString()
 	return buff.str();
 }
 
+string RAM::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->frequency << "," << this->DRAM << "," << this->modules;
+	return buff.str();
+}
+
 PSU::PSU() : Item()
 {
 	this->name = "";
@@ -131,6 +159,13 @@ string PSU::toString()
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", ";
 	buff << this->wattage << "W, rated " << this->rating << ", " << fixed << setprecision(2) << this->price << "$";
+	return buff.str();
+}
+
+string PSU::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->wattage << "," << this->rating;
 	return buff.str();
 }
 
@@ -170,6 +205,13 @@ string Storage::toString()
 	return buff.str();
 }
 
+string Storage::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->size << "," << this->type;
+	return buff.str();
+}
+
 MOBO::MOBO() : Item()
 {
 	this->name = "";
@@ -195,6 +237,13 @@ string MOBO::toString()
 	return buff.str();
 }
 
+string MOBO::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->platform << "," << this->formFactor;
+	return buff.str();
+}
+
 Case::Case() : Item()
 {
 	this->name = "";
@@ -215,5 +264,12 @@ string Case::toString()
 	stringstream buff;
 	buff << this->id << " - " << this->brand << " " << this->name << ", up to ";
 	buff << this->formFactor << " format, " << this->price << "$";
+	return buff.str();
+}
+
+string Case::toCSV()
+{
+	stringstream buff;
+	buff << this->id << "," << this->name << "," << this->price << "," << this->brand << "," << this->formFactor;
 	return buff.str();
 }
