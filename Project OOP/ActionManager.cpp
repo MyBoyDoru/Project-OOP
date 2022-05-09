@@ -10,8 +10,10 @@ void ActionManager::addAction(Shop shop)
 // TODO: FIX THIS ASAP!!!
 Shop ActionManager::undo()
 {
+	if (this->actionStack.empty())
+		throw(8);
 	this->wasUndo = true;
-	Shop rez = this->actionStack.top();
 	this->actionStack.pop();
+	Shop rez = this->actionStack.top();
 	return rez;
 }

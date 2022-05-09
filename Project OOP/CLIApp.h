@@ -43,6 +43,7 @@ private:
 	/// Menu for filtering
 	/// </summary>
 	void filter();
+	void undo();
 	/// <summary>
 	/// Input for the CPU etc etc
 	/// </summary>

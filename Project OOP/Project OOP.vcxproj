@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="CLIApp.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="CLIController.cpp" />
@@ -149,7 +149,7 @@
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Action.h" />
+    <ClInclude Include="ActionManager.h" />
     <ClInclude Include="CLIApp.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CLIController.h" />
@@ -161,6 +161,7 @@
     <Text Include="err_codes.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="test.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

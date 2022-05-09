@@ -53,6 +53,7 @@ string CLIController::getAllStr()
 void CLIController::init()
 {
 	this->fileHandler.load(this->controlledShop);
+	this->actionManager.addAction(this->controlledShop);
 	return;
 }
 
@@ -64,6 +65,7 @@ void CLIController::cleanUp()
 void CLIController::addElem(Item* x, int s)
 {
 	this->controlledShop.addElem(x, s);
+	this->actionManager.addAction(this->controlledShop);
 }
 
 void CLIController::removeElem(int id)
@@ -71,6 +73,7 @@ void CLIController::removeElem(int id)
 	if (this->controlledShop.getElemById(id) != nullptr)
 	{
 		this->controlledShop.remElem(id);
+		this->actionManager.addAction(this->controlledShop);
 		return;
 	}
 	throw(8);
@@ -92,9 +95,15 @@ void CLIController::modify(pair<Item*, int> x, int id)
 		if (this->controlledShop[i].first->getId() == id)
 		{
 			this->controlledShop[i] = x;
+			this->actionManager.addAction(this->controlledShop);
 			return;
 		}
 	}
+}
+
+void CLIController::undo()
+{
+	this->controlledShop = this->actionManager.undo();
 }
 
 string CLIController::filterType(string type)

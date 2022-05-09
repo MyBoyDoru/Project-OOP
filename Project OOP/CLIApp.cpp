@@ -305,6 +305,12 @@ void CLIApp::filter()
     }
 }
 
+void CLIApp::undo()
+{
+	this->controller.undo();
+    cout << "Action undone!\n";
+}
+
 void CLIApp::viewAll()
 {
 	cout << this->controller.getAllStr();
@@ -330,6 +336,7 @@ void CLIApp::Start()
         cout << "3. Remove an item from the inventory\n";
         cout << "4. Modify an item from the inventory\n";
         cout << "5. Filter the inventory\n";
+        cout << "6. Undo\n";
 		cout << "0. Exit\n";
 		int opt;
 		try {
@@ -357,6 +364,9 @@ void CLIApp::Start()
                     break;
                 case 5:
                     this->filter();
+                    break;
+                case 6:
+                    this->undo();
                     break;
 				case 0:
 					cout << "See ya\n";

@@ -1,9 +1,10 @@
 #pragma once
 #include "Shop.h"
+#include "ActionManager.h"
 #include "FileHandler.h"
 #include "FilterBase.h"
 #include <string>
-#define MAX_ERR_CODES 7
+#define MAX_ERR_CODES 8
 
 using std::string;
 using std::to_string;
@@ -80,10 +81,14 @@ public:
 	/// <param name="x">Modified Item</param>
 	/// <param name="id">ID of the old item</param>
 	void modify(pair<Item*, int> x, int id);
+	/// <summary>
+	/// Undo last action
+	/// </summary>
+	void undo();
 private:
     /// Controlled shop
 	Shop controlledShop;
 	FileHandler fileHandler; ///< The associated file handler for this app
-	
+	ActionManager actionManager; ///< The associated action manager for this app
 };
 

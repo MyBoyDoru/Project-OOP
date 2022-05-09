@@ -60,7 +60,7 @@
     <ClCompile Include="FileHandler.cpp">
       <Filter>Backend\File Handler</Filter>
     </ClCompile>
-    <ClCompile Include="Action.cpp">
+    <ClCompile Include="ActionManager.cpp">
       <Filter>Backend\Action</Filter>
     </ClCompile>
     <ClCompile Include="FilterBase.cpp">
@@ -83,7 +83,7 @@
     <ClInclude Include="FileHandler.h">
       <Filter>Backend\File Handler</Filter>
     </ClInclude>
-    <ClInclude Include="Action.h">
+    <ClInclude Include="ActionManager.h">
       <Filter>Backend\Action</Filter>
     </ClInclude>
     <ClInclude Include="FilterBase.h">
@@ -99,5 +99,6 @@
     <None Include="test.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

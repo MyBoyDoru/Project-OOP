@@ -5,3 +5,4 @@
 5 index out of range
 6 no such component type
 7 invalid item type while reading file
+8 cannot undo last action
