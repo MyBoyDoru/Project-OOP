@@ -27,7 +27,7 @@ public:
 	/// @param [in] c Pointer to the Item to be added
 	/// @param [in] stock Stock of the Item to be added
 	/// @param [out] err_c Error code. If anything happens, like the stock is negative (even if that's not really possible by design) the error code will change and the program will handle it accordingly
-	void addElem(Item* c, int stock, int& err_c);
+	void addElem(Item* c, int stock);
 	/// Search for a given element and return its position in the vector
 	/// @param [in] c Item to be searched for
 	/// @return the index of the item if found, -1 otherwise
@@ -43,11 +43,27 @@ public:
 	/// @param [in] x Index of the pair
 	/// @param [out] err_c Error code if needed
 	/// @return Pair of pointer of Item and int
-	pair<Item*,int> get(int x,int & err_c);
+	pair<Item*,int>& operator[](int x);
 	/// = operator
 	/// @param [in] other Shop to copy from
 	/// @return This shop
 	Shop operator=(const Shop other);
+	/// <summary>
+	/// Gets the entire list
+	/// </summary>
+	/// <returns>List with Items* and stocks</returns>
+	vector<pair<Item*, int>> getList() const { return this->sell; }
+	/// <summary>
+	/// Gets an element with the given ID
+	/// </summary>
+	/// <param name="id">ID to be searched</param>
+	/// <returns>Item* if found</returns>
+	Item* getElemById(int id);\
+	/// <summary>
+	/// Removes an element with the ID
+	/// </summary>
+	/// <param name="id">ID to be removed</param>
+	void remElem(int id);
 private:
 	string name; ///< Name of the shop
 	int sz; ///< Size of the vector

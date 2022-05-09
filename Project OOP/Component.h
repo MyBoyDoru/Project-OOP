@@ -31,7 +31,8 @@ public:
     /// Overloaded function to get the string representation of the Item
     /// @return The output can vary between object type but its always a string
 	virtual string toString();
-	
+    virtual string toCSV();
+    float getPrice() { return this->price; }
 	//operators
     /// Overloaded == operator
     /// @param [in] a First Item to be compared
@@ -62,6 +63,7 @@ public:
     /// Gets the string form of the CPU, ready for output
     /// @return String containing CPU information's
 	string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "CPU"
 	string getType() const { return "CPU"; };
@@ -88,6 +90,7 @@ public:
     /// Gets the string form of the GPU, ready for output
     /// @return String containing GPU information's
 	string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "GPU"
 	string getType() const { return "GPU"; };
@@ -115,6 +118,7 @@ public:
     /// Gets the string form of the RAM, ready for output
     /// @return String containing RAM information's
 	string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "RAM"
 	string getType() const { return "RAM"; };
@@ -142,6 +146,7 @@ public:
     /// Gets the string form of the PSU, ready for output
     /// @return String containing PSU information's
 	string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "PSU"
 	string getType() const { return "PSU"; };
@@ -171,6 +176,7 @@ public:
     /// Gets the string form of the Storage, ready for output
     /// @return String containing Storage's information's
     string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "Storage"
 	string getType() const { return "Storage"; };
@@ -197,6 +203,7 @@ public:
     /// Gets the string form of the MOBO, ready for output
     /// @return String containing MOBO's information's
     string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "MOBO"
 	string getType() const { return "MOBO"; };
@@ -225,6 +232,7 @@ public:
     /// Gets the string form of the Case, ready for output
     /// @return String containing Case's information's
     string toString();
+    string toCSV();
     /// Gets the type of the Item
     /// @return Always returns "Case"
 	string getType() const { return "Case"; }

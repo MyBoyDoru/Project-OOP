@@ -1,0 +1,7 @@
+GPU 1 - Nvidia RTX 3090ti, @1860hz, with 24 GB of VRAM, 1099.99$ 3
+CPU 2 - Intel Core I5-7400, 4 cores, @4.20 gHz, 399.99$ 10
+RAM 3 - Corsair Vengeance RGB PRO, @3200hz, with 32 GB of VRAM, with a 16*2 configuration, 199.99$ 7
+PSU 4 - Corsair RM650, 650W, rated 80 Gold, 69.99$ 4
+Storage 5 - Samsung EVO950, ssd of size 1000, 150.00$ 20
+MOBO 6 - Asus Z170 PRO GAMING, Intel based motherboard, ATX format, 180$ 3
+Case 7 - NZXT H700i, up to ATX format, 149.99$ 5
