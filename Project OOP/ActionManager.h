@@ -23,6 +23,14 @@ public:
 	/// Doesnt work at all
 	Shop redo();
 private:
-	stack<Shop> actionStack;
+	stack<Action> undoStack;
+	stack<Action> redoStack;
 	bool wasUndo;
+};
+
+class Action
+{
+public:
+	virtual void undo();
+	virtual void redo();
 };
