@@ -1,4 +1,5 @@
 #include "ActionManager.h"
+#include "CLIController.h"
 
 ActionManager::ActionManager()
 {
@@ -12,7 +13,8 @@ ActionManager::~ActionManager()
 
 void ActionManager::addAction(Action* action)
 {
-	
+	this->redoStack = stack<Action*>();
+	this->undoStack.push(action);
 }
 
 ActionAdd::ActionAdd(pair<Item*,int> item) : Action()
@@ -37,8 +39,14 @@ void ActionAdd::executeRedo(CLIController* controller)
 
 void ActionManager::undo(CLIController* controller)
 {
-	
+	if (this->undoStack.size() > 0)
+	{
+		this->undoStack.top()->executeUndo(controller);
+		this->redoStack.push(this->undoStack.top());
+		this->undoStack.pop();
+	}
 }
+
 
 void ActionManager::redo(CLIController* controller)
 {

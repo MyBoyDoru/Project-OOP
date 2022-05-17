@@ -1,8 +1,33 @@
 #pragma once
-#include "CLIController.h"
+#include "Component.h"
 #include <stack>
 #include <string>
 
+
+using std::stack;
+using std::string;
+using std::pair;
+class CLIController;
+class Action
+{
+public:
+	virtual void executeUndo(CLIController* controller) { return; }
+	virtual void executeRedo(CLIController* controller) { return; }
+protected:
+	virtual string getType() { return "DEFAULT_ACTION"; }
+};
+
+class ActionAdd : public Action
+{
+public:
+	ActionAdd(pair<Item*, int> item);
+	~ActionAdd();
+	void executeUndo(CLIController* controller);
+	void executeRedo(CLIController* controller);
+private:
+	string getType() { return "ADD_ACTION"; }
+	pair<Item*, int> addedItem;
+};
 
 class ActionManager
 {
@@ -16,3 +41,4 @@ private:
 	stack<Action*> undoStack;
 	stack<Action*> redoStack;
 };
+

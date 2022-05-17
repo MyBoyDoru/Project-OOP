@@ -8,28 +8,6 @@
 
 using std::string;
 using std::to_string;
-using std::stack;
-
-class Action
-{
-public:
-	virtual void executeUndo(CLIController* controller) { return; }
-	virtual void executeRedo(CLIController* controller) { return; }
-protected:
-	virtual string getType() { return "DEFAULT_ACTION"; }
-};
-
-class ActionAdd : public Action
-{
-public:
-	ActionAdd(pair<Item*, int> item);
-	~ActionAdd();
-	void executeUndo(CLIController* controller);
-	void executeRedo(CLIController* controller);
-private:
-	string getType() { return "ADD_ACTION"; }
-	pair<Item*, int> addedItem;
-};
 
 
 class CLIController
@@ -40,7 +18,6 @@ public:
 	/// alternate constructor
 	/// @param [in] shop Custom controlled shop
 	CLIController(const Shop& shop, string handler);
-	~CLIController();
 	//getters
     /// Gets the name of the shop
     /// @return A string containing the name of the shop
@@ -108,12 +85,8 @@ public:
 	/// <summary>
 	/// Undo last action
 	/// </summary>
-	void undo();
-	void addAction(Action* action);
 private:
     /// Controlled shop
 	Shop controlledShop;	
 	FileHandler fileHandler; ///< The associated file handler for this app
-	stack<Action*> undoStack;
-	stack<Action*> redoStack;
 };

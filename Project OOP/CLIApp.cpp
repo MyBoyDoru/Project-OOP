@@ -156,7 +156,7 @@ void CLIApp::setup()
         CPU* x = this->inputCPU();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
-        this->controller.addAction(new ActionAdd(make_pair(x, stock)));
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "GPU")
     {
@@ -164,6 +164,7 @@ void CLIApp::setup()
         GPU* x = this->inputGPU();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "RAM")
     {
@@ -171,6 +172,7 @@ void CLIApp::setup()
         RAM* x = this->inputRAM();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "PSU")
     {
@@ -178,6 +180,7 @@ void CLIApp::setup()
         PSU* x = this->inputPSU();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "Storage")
     {
@@ -185,6 +188,7 @@ void CLIApp::setup()
         Storage* x = this->inputStorage();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "MOBO")
     {
@@ -192,6 +196,7 @@ void CLIApp::setup()
         MOBO* x = this->inputMOBO();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "Case")
     {
@@ -199,6 +204,7 @@ void CLIApp::setup()
         Case* x = this->inputCase();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+		this->addAction(new ActionAdd(make_pair(x, stock)));
     }
 }
 
@@ -308,8 +314,13 @@ void CLIApp::filter()
 
 void CLIApp::undo()
 {
-	this->controller.undo();
+	this->manager.undo(&this->controller);
     cout << "Action undone!\n";
+}
+
+void CLIApp::addAction(Action* action)
+{
+	this->manager.addAction(action);
 }
 
 void CLIApp::viewAll()

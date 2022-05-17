@@ -15,19 +15,6 @@ CLIController::CLIController(const Shop& shop, string handler) : fileHandler(han
 {
 	this->controlledShop = shop;
 }
-CLIController::~CLIController()
-{
-	while (this->undoStack.size() > 0)
-	{
-		delete this->undoStack.top();
-		this->undoStack.pop();
-	}
-	while (this->redoStack.size() > 0)
-	{
-		delete this->redoStack.top();
-		this->redoStack.pop();
-	}
-}
 
 string CLIController::errorHandle(int errCode)
 {
@@ -108,22 +95,6 @@ void CLIController::modify(pair<Item*, int> x, int id)
 			return;
 		}
 	}
-}
-
-void CLIController::undo()
-{
-	if (this->undoStack.size() > 0)
-	{
-		this->undoStack.top()->executeUndo(this);
-		this->redoStack.push(this->undoStack.top());
-		this->undoStack.pop();
-	}
-}
-
-void CLIController::addAction(Action* action)
-{
-	this->redoStack = stack<Action*>();
-	this->undoStack.push(action);
 }
 
 string CLIController::filterType(string type)
