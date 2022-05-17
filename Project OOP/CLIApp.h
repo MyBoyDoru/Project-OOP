@@ -1,5 +1,6 @@
 #pragma once
 #include "CLIController.h"
+#include "ActionManager.h"
 
 class CLIApp
 {
@@ -20,7 +21,6 @@ public:
 private:
 
 	CLIController controller; ///< The associated controller for this app
-    
 	void clear(); ///< Cross platform clear function
 	void pause(); ///< Cross platform pause function
 	/// <summary>

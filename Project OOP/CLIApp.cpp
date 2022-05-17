@@ -156,6 +156,7 @@ void CLIApp::setup()
         CPU* x = this->inputCPU();
         cout << "Stock: "; cin >> stock;
         this->addElement(x, stock);
+        this->controller.addAction(new ActionAdd(make_pair(x, stock)));
     }
     else if (type == "GPU")
     {

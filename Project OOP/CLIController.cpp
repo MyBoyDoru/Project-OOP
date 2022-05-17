@@ -15,6 +15,19 @@ CLIController::CLIController(const Shop& shop, string handler) : fileHandler(han
 {
 	this->controlledShop = shop;
 }
+CLIController::~CLIController()
+{
+	while (this->undoStack.size() > 0)
+	{
+		delete this->undoStack.top();
+		this->undoStack.pop();
+	}
+	while (this->redoStack.size() > 0)
+	{
+		delete this->redoStack.top();
+		this->redoStack.pop();
+	}
+}
 
 string CLIController::errorHandle(int errCode)
 {
@@ -53,7 +66,6 @@ string CLIController::getAllStr()
 void CLIController::init()
 {
 	this->fileHandler.load(this->controlledShop);
-	this->actionManager.addAction(this->controlledShop);
 	return;
 }
 
@@ -65,7 +77,6 @@ void CLIController::cleanUp()
 void CLIController::addElem(Item* x, int s)
 {
 	this->controlledShop.addElem(x, s);
-	this->actionManager.addAction(this->controlledShop);
 }
 
 void CLIController::removeElem(int id)
@@ -73,7 +84,6 @@ void CLIController::removeElem(int id)
 	if (this->controlledShop.getElemById(id) != nullptr)
 	{
 		this->controlledShop.remElem(id);
-		this->actionManager.addAction(this->controlledShop);
 		return;
 	}
 	throw(8);
@@ -95,7 +105,6 @@ void CLIController::modify(pair<Item*, int> x, int id)
 		if (this->controlledShop[i].first->getId() == id)
 		{
 			this->controlledShop[i] = x;
-			this->actionManager.addAction(this->controlledShop);
 			return;
 		}
 	}
@@ -103,7 +112,18 @@ void CLIController::modify(pair<Item*, int> x, int id)
 
 void CLIController::undo()
 {
-	this->controlledShop = this->actionManager.undo();
+	if (this->undoStack.size() > 0)
+	{
+		this->undoStack.top()->executeUndo(this);
+		this->redoStack.push(this->undoStack.top());
+		this->undoStack.pop();
+	}
+}
+
+void CLIController::addAction(Action* action)
+{
+	this->redoStack = stack<Action*>();
+	this->undoStack.push(action);
 }
 
 string CLIController::filterType(string type)
