@@ -4,10 +4,11 @@
 #include "FileHandler.h"
 #include "FilterBase.h"
 #include <string>
-#define MAX_ERR_CODES 8
+#define MAX_ERR_CODES 9
 
 using std::string;
 using std::to_string;
+
 
 class CLIController
 {
@@ -84,11 +85,8 @@ public:
 	/// <summary>
 	/// Undo last action
 	/// </summary>
-	void undo();
 private:
     /// Controlled shop
-	Shop controlledShop;
+	Shop controlledShop;	
 	FileHandler fileHandler; ///< The associated file handler for this app
-	ActionManager actionManager; ///< The associated action manager for this app
 };
-

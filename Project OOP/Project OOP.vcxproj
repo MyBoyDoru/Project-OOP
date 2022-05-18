@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <Keyword>Win32Proj</Keyword>
+    <Keyword>QtVS_v302</Keyword>
     <ProjectGuid>{f92240e2-3e6f-452b-b5cb-9a753e045018}</ProjectGuid>
     <RootNamespace>ProjectOOP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -145,6 +145,7 @@
     <ClCompile Include="CLIController.cpp" />
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FilterBase.cpp" />
+    <ClCompile Include="GUIApp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="CLIController.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="FilterBase.h" />
+    <ClInclude Include="GUIApp.h" />
     <ClInclude Include="Shop.h" />
   </ItemGroup>
   <ItemGroup>

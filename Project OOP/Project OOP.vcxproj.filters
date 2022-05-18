@@ -40,6 +40,9 @@
     <Filter Include="Backend\Filter">
       <UniqueIdentifier>{fc113322-c538-4b21-83dd-ae4763d7e350}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Frontend\GUI">
+      <UniqueIdentifier>{0354b346-cb7a-45b6-a606-d423605fb75d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,9 @@
     <ClCompile Include="FilterBase.cpp">
       <Filter>Backend\Filter</Filter>
     </ClCompile>
+    <ClCompile Include="GUIApp.cpp">
+      <Filter>Frontend\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -88,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="FilterBase.h">
       <Filter>Backend\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIApp.h">
+      <Filter>Frontend\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
