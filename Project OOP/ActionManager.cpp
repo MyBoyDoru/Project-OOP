@@ -37,6 +37,26 @@ void ActionAdd::executeRedo(CLIController* controller)
 	controller->addElem(this->addedItem.first, this->addedItem.second);
 }
 
+ActionRemove::ActionRemove(pair<Item*, int> item)
+{
+	this->removedItem = item;
+}
+
+ActionRemove::~ActionRemove()
+{
+	delete this->removedItem.first;
+}
+
+void ActionRemove::executeUndo(CLIController* controller)
+{
+	controller->addElem(this->removedItem.first, this->removedItem.second);
+}
+
+void ActionRemove::executeRedo(CLIController* controller)
+{
+	controller->removeElem(this->removedItem.first->getId());
+}
+
 void ActionManager::undo(CLIController* controller)
 {
 	if (this->undoStack.size() > 0)
@@ -45,6 +65,8 @@ void ActionManager::undo(CLIController* controller)
 		this->redoStack.push(this->undoStack.top());
 		this->undoStack.pop();
 	}
+	else
+		throw(8);
 }
 
 
@@ -56,4 +78,6 @@ void ActionManager::redo(CLIController* controller)
 		this->undoStack.push(this->redoStack.top());
 		this->redoStack.pop();
 	}
+	else
+		throw(9);
 }

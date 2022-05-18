@@ -4,7 +4,7 @@
 #include "FileHandler.h"
 #include "FilterBase.h"
 #include <string>
-#define MAX_ERR_CODES 8
+#define MAX_ERR_CODES 9
 
 using std::string;
 using std::to_string;

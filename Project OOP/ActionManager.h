@@ -7,14 +7,14 @@
 using std::stack;
 using std::string;
 using std::pair;
+
 class CLIController;
+
 class Action
 {
 public:
 	virtual void executeUndo(CLIController* controller) { return; }
 	virtual void executeRedo(CLIController* controller) { return; }
-protected:
-	virtual string getType() { return "DEFAULT_ACTION"; }
 };
 
 class ActionAdd : public Action
@@ -25,8 +25,18 @@ public:
 	void executeUndo(CLIController* controller);
 	void executeRedo(CLIController* controller);
 private:
-	string getType() { return "ADD_ACTION"; }
 	pair<Item*, int> addedItem;
+};
+
+class ActionRemove : public Action
+{
+public:
+	ActionRemove(pair<Item*, int> item);
+	~ActionRemove();
+	void executeUndo(CLIController* controller);
+	void executeRedo(CLIController* controller);
+private:
+	pair<Item*, int> removedItem;
 };
 
 class ActionManager

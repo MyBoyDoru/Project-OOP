@@ -318,6 +318,12 @@ void CLIApp::undo()
     cout << "Action undone!\n";
 }
 
+void CLIApp::redo()
+{
+    this->manager.redo(&this->controller);
+    cout << "Action redone!\n";
+}
+
 void CLIApp::addAction(Action* action)
 {
 	this->manager.addAction(action);
@@ -349,6 +355,7 @@ void CLIApp::Start()
         cout << "4. Modify an item from the inventory\n";
         cout << "5. Filter the inventory\n";
         cout << "6. Undo\n";
+        cout << "7. Redo\n";
 		cout << "0. Exit\n";
 		int opt;
 		try {
@@ -379,6 +386,9 @@ void CLIApp::Start()
                     break;
                 case 6:
                     this->undo();
+                    break;
+                case 7:
+                    this->redo();
                     break;
 				case 0:
 					cout << "See ya\n";

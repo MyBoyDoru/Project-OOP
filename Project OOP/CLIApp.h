@@ -45,6 +45,7 @@ private:
 	/// </summary>
 	void filter();
 	void undo();
+	void redo();
 	void addAction(Action* action);
 	/// <summary>
 	/// Input for the CPU etc etc
