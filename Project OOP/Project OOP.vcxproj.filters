@@ -16,9 +16,6 @@
     <Filter Include="Backend">
       <UniqueIdentifier>{9dcc79ef-b186-44e7-b296-617ce37ab37c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Backend\Component">
-      <UniqueIdentifier>{9b6507d5-26aa-4e56-b5e1-d319f68deda6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Backend\Shop">
       <UniqueIdentifier>{baa23238-2779-4246-b73f-07a0aa09ba5f}</UniqueIdentifier>
     </Filter>
@@ -43,13 +40,19 @@
     <Filter Include="Frontend\GUI">
       <UniqueIdentifier>{0354b346-cb7a-45b6-a606-d423605fb75d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Backend\Test Framework">
+      <UniqueIdentifier>{80917449-98a9-42a8-8a78-8aaa861c8524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Backend\Item">
+      <UniqueIdentifier>{9b6507d5-26aa-4e56-b5e1-d319f68deda6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Backend\Component</Filter>
+    <ClCompile Include="Item.cpp">
+      <Filter>Backend\Item</Filter>
     </ClCompile>
     <ClCompile Include="Shop.cpp">
       <Filter>Backend\Shop</Filter>
@@ -72,10 +75,16 @@
     <ClCompile Include="GUIApp.cpp">
       <Filter>Frontend\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="TestUnit.cpp">
+      <Filter>Backend\Test Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTest.cpp">
+      <Filter>Backend\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h">
-      <Filter>Backend\Component</Filter>
+    <ClInclude Include="Item.h">
+      <Filter>Backend\Item</Filter>
     </ClInclude>
     <ClInclude Include="Shop.h">
       <Filter>Backend\Shop</Filter>
@@ -97,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="GUIApp.h">
       <Filter>Frontend\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit.h">
+      <Filter>Backend\Test Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTest.h">
+      <Filter>Backend\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

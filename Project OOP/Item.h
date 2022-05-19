@@ -9,7 +9,7 @@ using std::cout;
 class Item
 {
     /// @class Item
-    /// Base class for every Item/Component
+    /// Base class for every Item/Item
     ///
     /// Almost everything (except constructors) can be overloaded.<br> This is intentional such that more functionalities
     /// can be added during development
@@ -33,6 +33,7 @@ public:
 	virtual string toString();
     virtual string toCSV();
     float getPrice() { return this->price; }
+    string getName() { return this->name; }
 	//operators
     /// Overloaded == operator
     /// @param [in] a First Item to be compared
@@ -41,9 +42,9 @@ public:
 	friend bool operator==(const Item a, const Item b);
 
 protected:
-	int id;         ///< ID of the component
-	string name;    ///< Name of the component
-	float price;    ///< Price of the component
+	int id;         ///< ID of the Item
+	string name;    ///< Name of the Item
+	float price;    ///< Price of the Item
 };
 
 class CPU : public Item

@@ -141,23 +141,27 @@
   <ItemGroup>
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="CLIApp.cpp" />
-    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="CLIController.cpp" />
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FilterBase.cpp" />
     <ClCompile Include="GUIApp.cpp" />
+    <ClCompile Include="ItemTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="TestUnit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="CLIApp.h" />
-    <ClInclude Include="Component.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="CLIController.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="FilterBase.h" />
     <ClInclude Include="GUIApp.h" />
+    <ClInclude Include="ItemTest.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="TestUnit.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="err_codes.txt" />

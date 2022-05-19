@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "Component.h"
+#include "Item.h"
 
 using std::vector;
 using std::string;
@@ -67,7 +67,7 @@ public:
 private:
 	string name; ///< Name of the shop
 	int sz; ///< Size of the vector
-	vector<pair<Item*, int> > sell; ///< The vector will remember both the component type and the stock status of the component
+	vector<pair<Item*, int> > sell; ///< The vector will remember both the Item type and the stock status of the Item
 
 };
 

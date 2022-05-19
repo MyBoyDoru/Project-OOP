@@ -146,8 +146,8 @@ Case* CLIApp::inputCase()
 
 void CLIApp::setup()
 {
-	cout << "Component setup\n";
-	cout << "Type of component(CPU, GPU, RAM, PSU, Storage, MOBO, Case): ";
+	cout << "Item setup\n";
+	cout << "Type of Item(CPU, GPU, RAM, PSU, Storage, MOBO, Case): ";
     string type;
     cin >> type;
     if (type == "CPU")

@@ -1,4 +1,4 @@
-#include "Component.h"
+#include "Item.h"
 #include <sstream>
 #include <iomanip>
 
@@ -37,7 +37,7 @@ string Item::toCSV()
 	stringstream buff;
 	buff << this->id << "," << this->name << "," << this->price;
 	return buff.str();
-}
+ }
 
 CPU::CPU() : Item()
 {

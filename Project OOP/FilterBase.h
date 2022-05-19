@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "Component.h"
+#include "Item.h"
 
 using std::vector;
 using std::pair;
@@ -14,7 +14,7 @@ class FilterBase
 /// </summary>
 public:
 	/// <summary>
-	/// Virtual method to filter out the components
+	/// Virtual method to filter out the Items
 	/// </summary>
 	/// <param name="v">The array to be filtered</param>
 	/// <returns>Filtered array</returns>
